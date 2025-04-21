@@ -9,7 +9,7 @@
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background: linear-gradient(to bottom, #8F4FC1 50%, #101828 50%);
+    background: linear-gradient(to bottom, #8F4FC1 30%, #101828 50%);
     font-family: Arial, sans-serif;
   }
 
@@ -39,7 +39,7 @@
     max-width: 420px;
     text-align: center;
     position: relative;
-    margin-bottom: 5vh;
+    margin-bottom: 5rem;
   }
   
   .name-icon {
