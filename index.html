@@ -1,0 +1,31 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - UserHub</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="./assets/logo.png" alt="User icon" class="main-icon">
+  
+    <div class="card-login">
+      <img src="./assets/name.png" alt="UserHub" class="name-icon">
+      <form id="loginForm">
+        <div class="input-box">
+          <img src="./assets/account-icon.png" alt="User icon" class="icon">
+          <input id="email" type="email" placeholder="EMAIL" required autocomplete="off">
+        </div>
+        <div class="input-box">
+          <img src="./assets/key-icon.png" alt="Key icon" class="icon">
+          <input id="senha" type="password" placeholder="PASSWORD" required autocomplete="off">
+        </div>
+        <p id="forgot" class="forgot">esqueceu a senha?</p>
+        <p id="loginError"></p>
+        <button type="submit" class="btn">ENTRAR</button>
+        <button type="button" class="btn" onclick="window.location.href='cadastro.html'">CADASTRAR</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
