@@ -1,0 +1,19 @@
+@import url('./style.css');
+
+#loginError {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.forgot {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .forgot {
+    font-size: 1.1rem;
+  }
+}

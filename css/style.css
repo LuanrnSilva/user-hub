@@ -1,161 +1,142 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #8F4FC1 30%, #101828 50%);
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.main-icon {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.name-icon {
+  width: 206px;
+  margin-bottom: 1.5rem;
+}
+
+.form-box {
+  background-color: #fff;
+  padding: 2rem;
+  padding-top: 4rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid orange;
+  border-radius: 999px;
+  padding: 0.5rem;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.icon {
+  width: 20px;
+}
+
+.btn {
+  width: 50%;
+  background-color: #192438;
+  color: orange;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #e48000;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .main-icon {
+    width: 140px;
+    margin-bottom: 1rem;
   }
 
-  body, html {
-    width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: linear-gradient(to bottom, #8F4FC1 30%, #101828 50%);
-    font-family: Arial, sans-serif;
+  .name-icon {
+    width: 140px;
   }
 
-  .container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .form-box {
+    width: 90%;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
   }
-  
+
+  .input-box {
+    flex-direction: row;
+    padding: 0.4rem;
+  }
+
+  .icon {
+    width: 16px;
+  }
+
+  .btn, .register-btn {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form-box {
+    max-width: 500px;
+    padding-top: 5rem;
+    width: 100%;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+  }
+
   .main-icon {
     width: 200px;
-    margin-bottom: 10px;
   }
-  
-  .card-login {
-    background-color: #fff;
-    padding: 2rem;
-    padding-top: 4rem;
-    border-radius: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 90%;
-    max-width: 420px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 5rem;
-  }
-  
-  .name-icon {
-    width: 206px;
-    margin-bottom: 1.5rem;
-  }
-  
+
   .input-box {
-    display: flex;
-    align-items: center;
-    border: 2px solid orange;
-    border-radius: 999px;
-    padding: 0.5rem;
-    margin-bottom: 15px;
+    padding: 1rem;
   }
-  
-  .icon {
-    width: 20px;
-  }
-  
-  .input-box input {
-    border: none;
-    outline: none;
-    margin-left: 10px;
-    width: 100%;
-  }
-  
-  .btn {
+
+  .btn, .register-btn {
+    padding: 18px;
     width: 50%;
-    background-color: #192438;
-    color: orange;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-weight: bold;
-    transition: 0.3s;
+    font-size: 1.1em;
   }
-  
-  
-  .btn:hover {
-    background-color: #192438;
-  }
-  
-  .forgot {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-
-  #loginError {
-    color: red;
-    font-size: 13px;
-    margin-bottom: 10px;
-  }
-  
-  @media (max-width: 600px) {
-    .main-icon {
-      width: 140px;
-      margin-bottom: 1rem;
-    }
-  
-    .name-icon {
-      width: 140px;
-    }
-  
-    .card-login {
-      width: 90%;
-      padding: 1.5rem 1rem;
-      margin-bottom: 1rem;
-    }
-  
-    .input-box {
-      flex-direction: row;
-      padding: 0.4rem;
-    }
-  
-    .icon {
-      width: 16px;
-    }
-  
-    .btn {
-      font-size: 0.9rem;
-      padding: 8px;
-    }
-  }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .card-login {
-      max-width: 500px;
-      padding-top: 5rem;
-    }
-  
-    .main-icon {
-      width: 200px;
-    }
-  
-    .input-box {
-      padding: 1rem;
-    }
-  
-    .btn {
-      padding: 18px;
-      width: 50%;
-    }
-    .card-login {
-        width: 100%;
-        padding: 3rem 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .forgot {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-        color: #333;
-      }
-  }
-  
+}
