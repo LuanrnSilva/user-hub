@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listagem</title>
+  <link rel="stylesheet" href="./css/listagem.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Userhub</h1>
+    <div class="search-container">
+      <input id="searchInput" type="text" placeholder="Buscar por nome...">
+    </div>
+    <div class="profile-container">
+      <span class="username">LUAN RENATO</span>
+      <img src="./assets/profile.jpg" alt="Foto do usuário" class="profile-img">
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="table-container">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>E-MAIL</th>
+            <th>DATA</th>
+            <th>AÇÕES</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+        </tbody>
+      </table>
+  
+      <p class="user-count">USUÁRIOS CADASTRADOS: <span id="userCount">--</span></p>
+    </div>
+  
+    <div class="icon-container">
+      <img src="./assets/logo.png" alt="Ícone de usuário">
+    </div>
+  </main>
+
+  <script src="./js/listagem.js"></script>
+</body>
+</html>

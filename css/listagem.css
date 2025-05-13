@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+.header {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #101828;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.search-container input {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  width: 250px;
+  max-width: 100%;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.main {
+  padding: 40px 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.user-table {
+  width: 60%;
+  max-width: 100%;
+  margin: 0 auto 20px;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+.user-table thead {
+  background-color: #101828;
+  color: white;
+}
+
+.user-table td button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 2px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.edit-btn {
+  background-color: #f97316;
+}
+
+.delete-btn {
+  background-color: #dc2626;
+}
+
+.user-count {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto 0;
+  padding: 0 10px;
+}
+
+.icon-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.icon-container img {
+  width: 60px;
+  height: auto;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  .main {
+    padding: 20px 10px;
+  }
+
+  .user-table th,
+  .user-table td {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .user-count {
+    font-size: 16px;
+  }
+
+  .profile-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .user-table td button {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+
+  .search-container input {
+    font-size: 14px;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .user-count {
+    font-size: 14px;
+  }
+}
