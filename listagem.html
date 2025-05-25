@@ -8,16 +8,22 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="logo">Userhub</h1>
+    <div class="logo-container">
+      <img src="assets/name.png" alt="logo-name" class="logo-name">
+    </div>
     <div class="search-container">
       <input id="searchInput" type="text" placeholder="Buscar por nome..." />
     </div>
-    <div class="profile-container">
-      <span class="username">LUAN RENATO</span>
-      <img src="./assets/profile.jpg" alt="Foto do usuário" class="profile-img" />
-    </div>
+        <div class="user-menu">
+          <span id="username"></span>
+          <img src="./assets/logo.png" alt="User" class="user-icon">
+          <div class="dropdown-content">
+            <a href="#" id="perfil">Perfil</a>
+              <a href="tmdb.html">Filmes</a>
+              <a href="login.html" id="sair">Sair</a>
+          </div>
+        </div>
   </header>
-
   <main class="main">
     <div class="table-wrapper">
       <table class="user-table">
@@ -32,15 +38,9 @@
         </thead>
         <tbody id="userTableBody"></tbody>
       </table>
-
       <p class="user-count">USUÁRIOS CADASTRADOS: <span id="userCount">--</span></p>
     </div>
   </main>
-
-  <div class="icon-container">
-    <img src="./assets/logo.png" alt="Ícone de usuário" />
-  </div>
-
   <div id="editModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeEditModal()">&times;</span>
@@ -69,7 +69,11 @@
       </div>
     </div>
   </div>
-
+    <footer>
+      <div class="icon-container">
+        <img src="./assets/logo.png" alt="Ícone de usuário" />
+      </div>
+    </footer>
   <script src="./js/listagem.js"></script>
 </body>
 </html>

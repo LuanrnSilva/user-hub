@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
       if (usuarioEncontrado) {
         localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
-        window.location.href = "listagem.html";
+        window.location.href = "tmdb.html";
       } else {
         errorMsg.textContent = "E-mail ou senha inválidos.";
       }

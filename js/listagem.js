@@ -86,13 +86,25 @@ function deleteUser(id) {
 function confirmDeleteUser() {
   const id = parseInt(document.getElementById('deleteUserId').value);
   const index = users.findIndex(user => user.id === id);
-  if (index > -1) {
-    users.splice(index, 1);
-    saveUsers();
-    renderUsers();
-    closeDeleteModal();
+
+    if (index > -1) {
+      const userToDelete = users[index];
+
+      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+      const isSameUser = usuarioLogado && usuarioLogado.email === userToDelete.email;
+
+      users.splice(index, 1);
+      saveUsers();
+      renderUsers();
+      closeDeleteModal();
+
+      if (isSameUser) {
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = "login.html";
+      }
+    }
   }
-}
 
 function closeDeleteModal() {
   document.getElementById('confirmDeleteModal').style.display = 'none';
@@ -103,3 +115,25 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => renderUsers());
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderUsers();
+
+  const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+  const usernameSpan = document.getElementById('username');
+
+  if (!usuarioLogado) {
+    window.location.href = 'login.html';
+  } else {
+    const nomeFormatado = formatarNome(usuarioLogado.nome || usuarioLogado.email.split('@')[0]);
+    usernameSpan.textContent = nomeFormatado;
+  }
+});
+
+function formatarNome(nome) {
+  return nome
+    .toLowerCase()
+    .split(' ')
+    .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1))
+    .join(' ');
+}

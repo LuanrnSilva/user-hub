@@ -1,0 +1,121 @@
+@import url('./base.css');
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.filmes-list {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.filme-card {
+  background-color: #192438;
+  color: orange;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.filme-card:hover {
+  transform: scale(1.05);
+}
+
+.filme-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.filme-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagina-btn {
+  background-color: #192438;
+  color: orange;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pagina-btn:hover {
+  background-color: #2a3a5a;
+}
+
+.pagina-btn.active {
+  background-color: orange;
+  color: #192438;
+  font-weight: bold;
+}
+
+.sem-resultados {
+  color: orange;
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .filmes-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-icon {
+    width: 150px;
+  }
+
+  .input-busca {
+    width: 90%;
+  }
+
+  .filmes-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pagina-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
