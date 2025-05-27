@@ -20,7 +20,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('userId').textContent = usuario.id;
     document.getElementById('userName').textContent = usuario.nome;
     document.getElementById('userEmail').textContent = usuario.email;
-    document.getElementById('userDate').textContent = usuario.data || usuario.dataCadastro || 'Não informada';
   }
 });
 
@@ -82,5 +81,4 @@ const usuario = usuarios.find(u => u.email === usuarioLogado.email);
   document.getElementById("userId").textContent        = usuario.id;
   document.getElementById("userName").textContent      = usuario.nome;
   document.getElementById("userEmail").textContent     = usuario.email;
-  document.getElementById("userDate").textContent      = usuario.dataCadastro;
 });
