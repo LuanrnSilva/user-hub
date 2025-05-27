@@ -118,13 +118,28 @@ document.addEventListener('DOMContentLoaded', () => renderUsers());
 
 document.addEventListener('DOMContentLoaded', () => {
   renderUsers();
-
+  const userIconImg = document.getElementById('userIconImg');
   const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
   const usernameSpan = document.getElementById('username');
 
   if (!usuarioLogado) {
     window.location.href = 'login.html';
   } else {
+    const profileImage = usuarioLogado.profileImage || localStorage.getItem('profileImage');
+    userIconImg.src = profileImage || './assets/logo.png';
+
+    userIconImg.src = profileImage || './assets/logo.png';
+    userIconImg.style.width = '32px';
+    userIconImg.style.height = '32px';
+    
+    if (profileImage) {
+      userIconImg.style.borderRadius = '50%';
+      userIconImg.style.objectFit = 'cover';
+    } else {
+      userIconImg.style.borderRadius = '0';
+      userIconImg.style.objectFit = 'contain';
+    }
+
     const nomeFormatado = formatarNome(usuarioLogado.nome || usuarioLogado.email.split('@')[0]);
     usernameSpan.textContent = nomeFormatado;
   }

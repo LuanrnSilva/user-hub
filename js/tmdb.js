@@ -12,6 +12,8 @@ const dropdown = document.querySelector('.dropdown-content');
 const logoutBtn = document.getElementById('sair');
 const perfilBtn = document.getElementById('perfil');
 const listaUsuariosBtn = document.getElementById('listaUsuarios');
+const profileImage = localStorage.getItem('profileImage');
+const userIconImg = document.getElementById('userIconImg');
 
 const apiKey = '185fa5d6f93e082e1c3b92a59382e618';
 const baseImgUrl = 'https://image.tmdb.org/t/p/w500';
@@ -22,7 +24,7 @@ let currentQuery = '';
 
 document.addEventListener('DOMContentLoaded', () => {
   const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-  
+
   if (!usuarioLogado) {
     window.location.href = 'login.html';
     return;
@@ -35,36 +37,56 @@ document.addEventListener('DOMContentLoaded', () => {
     .replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
   usernameSpan.textContent = nomeUsuario;
 
+  if (userIconImg) {
+    const profileImage = usuarioLogado.profileImage || localStorage.getItem('profileImage');
+    userIconImg.src = profileImage || './assets/logo.png';
+    userIconImg.style.width = '32px';
+    userIconImg.style.height = '32px';
+    
+    if (profileImage) {
+      userIconImg.style.borderRadius = '50%';
+      userIconImg.style.objectFit = 'cover';
+    } else {
+      userIconImg.style.borderRadius = '0';
+      userIconImg.style.objectFit = 'contain';
+    }
+  }
+
+  if(logoutBtn) {
   logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
     localStorage.removeItem('usuarioLogado');
     window.location.href = 'login.html';
-  });
+    });
+  }
 
   perfilBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert(`Perfil de ${usuarioLogado.nome || usuarioLogado.email}`);
-  });
-
-  listaUsuariosBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = 'listagem.html';
-  });
+  e.preventDefault();
+  window.location.href = 'perfil.html';
 });
 
-if (userIcon && dropdown) {
-  userIcon.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-  });
+  if (listaUsuariosBtn) {
+    listaUsuariosBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'listagem.html';
+    });
+  }
 
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target) && !userIcon.contains(e.target)) {
-      dropdown.style.display = 'none';
-    }
-  });
-}
+  if (userIcon && dropdown) {
+    userIcon.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+      const isClickInsideMenu = userIcon.contains(e.target) || dropdown.contains(e.target);
+      if (!isClickInsideMenu) {
+        dropdown.style.display = 'none';
+      }
+    });
+  }
+});
 
 async function carregarPopulares(page = 1) {
   isSearching = false;

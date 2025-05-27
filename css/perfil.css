@@ -1,0 +1,148 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0f1625;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: orange;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.back-button span {
+  margin-left: 8px;
+}
+#userPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#userPhoto[src*="logo.png"] {
+  object-fit: contain;
+  padding: 25px;
+  background-color: #192438;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #192438;
+  margin: 20px auto;
+  position: relative;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.upload-btn {
+  margin-bottom: 20px;
+  background-color: orange;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.card {
+  background: white;
+  color: black;
+  border-radius: 20px;
+  padding: 30px;
+  width: 320px;
+  text-align: left;
+}
+.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.footer {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .upload-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  .footer {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .back-button {
+    font-size: 14px;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .upload-btn {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  .card {
+    width: 400px;
+    padding: 30px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .footer {
+    font-size: 17px;
+  }
+
+  .back-button {
+    font-size: 16px;
+  }
+}
