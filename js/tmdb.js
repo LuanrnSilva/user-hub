@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   perfilBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert(`Perfil de ${usuarioLogado.nome || usuarioLogado.email}`);
-  });
+  e.preventDefault();
+  window.location.href = 'perfil.html';
+});
 
   listaUsuariosBtn.addEventListener('click', (e) => {
     e.preventDefault();
