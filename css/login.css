@@ -10,10 +10,18 @@
   font-size: 1rem;
   margin-bottom: 1rem;
   color: #333;
+  cursor: pointer; /* Adiciona o cursor de mão */
+  transition: color 0.3s;
 }
+
+.forgot:hover {
+  color: orange; /* Cor ao passar o mouse */
+}
+
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .forgot {
     font-size: 1.1rem;
   }
 }
+

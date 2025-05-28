@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Senha - UserHub</title>
+  <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+  <div class="container">
+    <img src="./assets/logo.png" alt="User icon" class="main-icon">
+
+    <div class="form-box">
+      <img src="./assets/name.png" alt="UserHub" class="name-icon">
+      <form id="recoveryForm">
+        <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #333;">Informe seu e-mail para recuperar sua senha</p>
+        <div class="input-box">
+          <img src="./assets/account-icon.png" alt="User icon" class="icon">
+          <input id="emailRecuperacao" type="email" placeholder="E-MAIL" required autocomplete="off">
+        </div>
+        <p id="recoveryMessage" style="color: red; font-size: 13px; margin-bottom: 10px;"></p>
+        <button type="submit" class="btn">ENVIAR</button>
+        <button type="button" class="btn" onclick="window.location.href='login.html'">VOLTAR</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('recoveryForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('emailRecuperacao').value;
+      const msg = document.getElementById('recoveryMessage');
+
+      if (!email.includes('@')) {
+        msg.textContent = 'Digite um e-mail válido.';
+      } else {
+        msg.style.color = 'green';
+        msg.textContent = 'Se o e-mail estiver cadastrado, você receberá instruções de recuperação.';
+      }
+    });
+  </script>
+</body>
+</html>
