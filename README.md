@@ -1,4 +1,4 @@
-# 🎬 Movie Explorer - Busca de Filmes com TMDB
+# 🎬 UserHub - Busca de Filmes com TMDB
 
 Este é um projeto web simples que permite buscar e explorar filmes populares usando a [API do TMDB (The Movie Database)](https://www.themoviedb.org/). A aplicação exibe os filmes em cards, e ao clicar em um filme, abre um modal com **sinopse** e **trailer** do YouTube.
 
