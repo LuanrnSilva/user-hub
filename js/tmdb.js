@@ -206,7 +206,8 @@ async function abrirModal(filmeId) {
 
   modalTitle.textContent = detalhes.title;
   modalSinopse.innerHTML = `<strong>Sinopse:</strong> ${detalhes.overview || 'Sinopse indisponível.'}`;
-  modalTrailer.src = trailer ? `https://www.youtube.com/embed/${trailer.key}` : '';
+
+  modalTrailer.src = trailer ? `https://www.youtube.com/embed/${trailer.key}` : 'Trailer_indisponivel.';
 
   modal.classList.remove('hidden');
 }
