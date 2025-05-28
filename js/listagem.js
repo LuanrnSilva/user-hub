@@ -73,7 +73,17 @@ function saveUserEdit() {
     users[index].nome = nome;
     users[index].email = email;
     saveUsers();
-    renderUsers();
+
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    if (usuarioLogado && usuarioLogado.email === users[index].email) {
+      usuarioLogado.nome = nome;
+      usuarioLogado.email = email;
+      localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+      window.location.reload();
+    } else {
+      renderUsers();
+    }
+
     closeEditModal();
   }
 }
@@ -87,24 +97,22 @@ function confirmDeleteUser() {
   const id = parseInt(document.getElementById('deleteUserId').value);
   const index = users.findIndex(user => user.id === id);
 
-    if (index > -1) {
-      const userToDelete = users[index];
+  if (index > -1) {
+    const userToDelete = users[index];
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const isSameUser = usuarioLogado && usuarioLogado.email === userToDelete.email;
 
-      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    users.splice(index, 1);
+    saveUsers();
+    renderUsers();
+    closeDeleteModal();
 
-      const isSameUser = usuarioLogado && usuarioLogado.email === userToDelete.email;
-
-      users.splice(index, 1);
-      saveUsers();
-      renderUsers();
-      closeDeleteModal();
-
-      if (isSameUser) {
-        localStorage.removeItem('usuarioLogado');
-        window.location.href = "login.html";
-      }
+    if (isSameUser) {
+      localStorage.removeItem('usuarioLogado');
+      window.location.href = "login.html";
     }
   }
+}
 
 function closeDeleteModal() {
   document.getElementById('confirmDeleteModal').style.display = 'none';
@@ -114,10 +122,9 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
   renderUsers(e.target.value);
 });
 
-document.addEventListener('DOMContentLoaded', () => renderUsers());
-
 document.addEventListener('DOMContentLoaded', () => {
   renderUsers();
+
   const userIconImg = document.getElementById('userIconImg');
   const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
   const usernameSpan = document.getElementById('username');
@@ -128,10 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileImage = usuarioLogado.profileImage || localStorage.getItem('profileImage');
     userIconImg.src = profileImage || './assets/logo.png';
 
-    userIconImg.src = profileImage || './assets/logo.png';
     userIconImg.style.width = '32px';
     userIconImg.style.height = '32px';
-    
+
     if (profileImage) {
       userIconImg.style.borderRadius = '50%';
       userIconImg.style.objectFit = 'cover';
